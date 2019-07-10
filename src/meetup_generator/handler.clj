@@ -4,7 +4,6 @@
             [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.resource :refer [wrap-resource]]
-            [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
 (defroutes app-routes
