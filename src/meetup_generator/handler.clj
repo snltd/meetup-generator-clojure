@@ -12,5 +12,4 @@
 
 (def app
   (-> (wrap-defaults app-routes site-defaults)
-      (wrap-resource "public")
-      (wrap-reload)))
+      (wrap-resource "public")))
