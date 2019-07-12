@@ -43,6 +43,6 @@
             (link-to "https://github.com/snltd/meetup-generator-clojure"
                      "The code")]
 
-         ]
-          ]; closebody
+          ]
+         ]; closebody
     ))
