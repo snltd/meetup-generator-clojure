@@ -26,8 +26,7 @@
   ([] (agenda 5))
   ([how-many]
   { :talks       (vec (map talk (take how-many (shuffle (:template things)))))
-    :refreshment (refreshment) }
-  ))
+    :refreshment (refreshment) }))
 
 (defn talker
   "the name of the person delivering the talk"

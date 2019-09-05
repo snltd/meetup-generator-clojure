@@ -1,14 +1,9 @@
 (ns meetup-generator.api)
 
-(def api-paths #{"talker" "role" "refreshment" "company"
-                 "title" "talk" "agenda"})
-
-(defn merp []
-  "MERP MERP" )
+(def api-paths #{"talker" "role" "refreshment" "company" "title" "talk"
+                 "agenda"})
 
 (defn handler [word]
-    (if (contains? api-paths word)
-      {(keyword word) ((resolve (symbol "meetup-generator.lib" word))) }
-      {:error "unsupported API path"})
-)
-
+  (if (contains? api-paths word)
+    {(keyword word) ((resolve (symbol "meetup-generator.lib" word)))}
+    {:error "unsupported API path"}))
