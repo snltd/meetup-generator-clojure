@@ -12,6 +12,14 @@ A working Clojure environment, and
 
 ## Running
 
+To start in dev mode, with automatic reloading of changed code:
+
+```
+$ lein with-profile dev run
+```
+
+and to start a production server:
+
 ```
 $ lein run
 ```
