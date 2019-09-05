@@ -7,10 +7,13 @@
                  [io.forward/yaml "1.0.9"]
                  [compojure "1.6.1"]
                  [ring/ring-jetty-adapter "1.4.0"]
+                 [ring/ring-json "0.5.0"]
                  [environ "1.0.0"]
                  [ring/ring-defaults "0.3.2"]]
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler meetup-generator.handler/app}
   :profiles
-  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+  {:dev {:main meetup-generator.handler/-dev-main
+         :dependencies [[javax.servlet/servlet-api "2.5"]
+                        [ring/ring-devel "1.7.1"]
                         [ring/ring-mock "0.3.2"]]}})
