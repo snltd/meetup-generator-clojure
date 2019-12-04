@@ -8,7 +8,8 @@ I've got everything wrong.
 ## Prerequisites
 
 A working Clojure environment, and
-[Leiningen](https://github.com/technomancy/leiningen) 2.0 or above.
+[Leiningen](https://github.com/technomancy/leiningen) 2.0 or above. Written
+with Clojure 1.10 running on Java 8.
 
 ## Running
 
@@ -25,6 +26,12 @@ $ lein run
 ```
 
 will start the server on port 8080.
+
+## Testing
+
+```
+$ lein test-refresh
+```
 
 ## Deployment
 
