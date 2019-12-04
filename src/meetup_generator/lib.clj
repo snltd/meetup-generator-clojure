@@ -5,7 +5,7 @@
 (def things (yaml/from-file "resources/all_the_things.yaml"))
 (def words (str/split-lines (slurp "resources/words")))
 
-(defn- something-ops
+(defn something-ops
   "some new nonsense ..Ops thing"
   [_]
   (format "%sOps"
@@ -21,19 +21,24 @@
   "replace %placeholders% in a template string"
   [template]
   (str/replace template
-               #"%\w+%"
+               #"%[a-z_]+%"
                #(rand-nth ((keyword (str/replace % "%" "")) things))))
 
-(defn- replace-ops
+(defn replace-ops
   "replace FNOPS with a something-ops"
   [template]
-  (str/replace template #"FNOPS" something-ops))
+  (str/replace template #"%FNOPS%" something-ops))
 
-(defn- replace-number
+(defn replace-word
+  "replace %WORD% with a random word"
+  [template]
+  (str/replace template #"%WORD%" (str/capitalize (rand-nth words))))
+
+(defn replace-number
   "replace RANDX with a number in a template string"
   [template]
   (str/replace template
-               #"RAND(\d+)"
+               #"%RAND(\d+)%"
                #(random-number (read-string (peek %)))))
 
 (defn- pair
@@ -44,7 +49,7 @@
 (defn- fill-template
   "turn a template into a title"
   [template]
-  (replace-ops (replace-number (replace-things template))))
+  (replace-word (replace-ops (replace-number (replace-things template)))))
 
 (defn title
   "make a meetup talk title"
